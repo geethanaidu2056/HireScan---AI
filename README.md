@@ -2,13 +2,6 @@
 # 🧠 AI Resume Analyzer + ATS Resume Builder
 
 An AI-powered web application that analyzes resumes, calculates ATS compatibility score, recommends job roles, and also allows users to generate ATS-friendly resumes using templates.
-
----
-
-## 🚀 Live Demo
-(After deployment add link here)
-https://your-app.onrender.com
-
 ---
 
 ## 📌 Features
@@ -40,4 +33,15 @@ https://your-app.onrender.com
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Architecture
+
+- **Frontend:** HTML, CSS (Jinja Templates)
+- **Backend:** Flask (Python)
+- **AI Logic:** Rule-based ATS scoring system
+- **File Processing:** PyPDF2 for resume parsing
+
+### Folder Overview:
+- `app.py` → Core backend logic
+- `templates/` → UI pages
+- `static/` → Styling and assets
+- `screenshots/` → UI previews for GitHub
