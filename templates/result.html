@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume AI Analyzer</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .skill {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        .missing {
+            background: #e74c3c;
+        }
+
+        .job {
+            background: #2ecc71;
+        }
+
+        .bar-bg {
+            background: #ddd;
+            border-radius: 20px;
+            height: 20px;
+            margin-top: 10px;
+        }
+
+        .bar-fill {
+            height: 20px;
+            border-radius: 20px;
+            background: #27ae60;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        a {
+            text-decoration: none;
+            background: #34495e;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .back {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📄 Resume AI Analysis Report</h1>
+
+    <!-- ATS SCORE -->
+    <div class="card center">
+        <h2>🎯 ATS Match Score: {{ ats }}%</h2>
+
+        <!-- PROGRESS BAR -->
+        <div class="bar-bg">
+            <div class="bar-fill" style="width: {{ ats }}%;"></div>
+        </div>
+
+        <h3>📊 Score: {{ score }}/100</h3>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="card">
+        <h3>✅ Skills Found</h3>
+        {% for skill in skills %}
+            <span class="skill">{{ skill }}</span>
+        {% endfor %}
+    </div>
+
+    <!-- MISSING SKILLS -->
+    <div class="card">
+        <h3>❌ Missing Skills</h3>
+        {% for skill in missing %}
+            <span class="skill missing">{{ skill }}</span>
+        {% endfor %}
+    </div>
+
+    <!-- JOBS -->
+    <div class="card">
+        <h3>💼 Recommended Jobs</h3>
+        {% for job in jobs %}
+            <span class="skill job">{{ job }}</span>
+        {% endfor %}
+    </div>
+
+    <!-- IMPROVEMENTS -->
+    <div class="card">
+        <h3>💡 Suggestions</h3>
+        {% for s in suggestions %}
+            <p>👉 {{ s }}</p>
+        {% endfor %}
+    </div>
+
+    <!-- RESUME TEXT -->
+    <div class="card">
+        <h3>📄 Extracted Resume Text</h3>
+        <pre>{{ text }}</pre>
+    </div>
+
+    <div class="back">
+        <a href="/">⬅ Upload Another Resume</a>
+    </div>
+
+</div>
+
+</body>
+</html>
